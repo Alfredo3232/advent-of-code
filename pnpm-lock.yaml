@@ -9,13 +9,13 @@ importers:
   .:
     devDependencies:
       '@eslint/js':
-        specifier: ^9.15.0
+        specifier: ^9.16.0
         version: 9.16.0
       eslint:
-        specifier: ^9.15.0
+        specifier: ^9.16.0
         version: 9.16.0
       globals:
-        specifier: ^15.12.0
+        specifier: ^15.13.0
         version: 15.13.0
 
 packages:

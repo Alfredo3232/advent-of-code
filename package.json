@@ -1,17 +1,19 @@
 {
-  "name": "advent-of-code",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "GNU AFFERO GENERAL PUBLIC LICENSE v3",
-  "devDependencies": {
-    "@eslint/js": "^9.16.0",
-    "eslint": "^9.16.0",
-    "globals": "^15.13.0"
-  }
+    "name": "advent-of-code",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "This is just to keep track of my code neatly, please adhere to the rules. Please do not use my code to pass any of the problems.",
+    "main": "index.js",
+    "author": "Alfredo3232",
+    "license": "GNU AFFERO GENERAL PUBLIC LICENSE v3",
+    "homepage": "https://github.com/Alfredo3232/advent-of-code",
+    "scripts": {
+        "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.16.0",
+        "eslint": "^9.16.0",
+        "globals": "^15.13.0"
+    }
 }

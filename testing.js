@@ -1,4 +1,11 @@
-let arr = [
+// let x = 
+// [[1, 2, 7, 8, 9],
+// [9, 7, 6, 2, 1],
+// [7, 6, 4, 2, 1], //Safe
+// [1, 3, 2, 4, 5], //Safe 3
+// [8, 6, 4, 4, 1], //Safe 4
+// [1, 3, 6, 7, 9]] //Safe
+let x = [
     [66, 67, 68, 71, 72, 69],
     [72, 75, 78, 79, 79],
     [38, 40, 41, 42, 44, 47, 48, 52],
@@ -1001,78 +1008,37 @@ let arr = [
     [40, 42, 44, 46, 49, 51]
 ];
 
-// ================================================= IN PROGRESS =======================================================================
 
-let safeCounter = 0;
 
-for (let i = 0; i < arr.length; i++) {
-    // Start Values
-    let diffArr = [];
-    let tempArr = [];
-    let boo = true;
-
-    // For Loop to check wether
-    for (let j = 1; j < arr[i].length; j++) {
-        let diff = arr[i][j] - arr[i][j - 1];
-
-        if (diff > 3 || diff < -3 || diff === 0) {
-            boo = false;
-            let dupliCount = 0;
-
-            tempArr = arr[i].filter((el) => {
-                if (el === arr[i][j - 1]) {
-                    if (dupliCount === 1) {
-                        return true;
-                    }
-                    dupliCount++;
-
-                    return false;
-                }
-                    return true;
-
-            });
-
-            break;
-        } else {
-            diffArr.push(diff);
-        }
-    }
-
-    if (tempArr.length > 1) {
-        for (let j = 1; j < tempArr.length; j++) {
-            let diff = tempArr[j] - tempArr[j - 1];
-
-            if (diff > 3 || diff < -3 || diff === 0) {
-                boo = false;
-                break;
-            } else {
-                boo = true;
-                diffArr.push(diff);
-            }
-        }
-    }
-    console.log("1", boo);
-
-    if (boo) {
-        console.log(diffArr);
-
-        for (let j = 0; j < diffArr.length; j++) {
-            let isInc = diffArr[0] > 0;
-
-            if (isInc) {
-                if (!(diffArr[j] > 0)) {
-                    boo = false;
-                    break;
-                }
-            } else {
-                if (!(diffArr[j] < 0)) {
-                    boo = false;
-                    break;
-                }
-            }
-        }
-        console.log("2", boo);
-        if (boo) safeCounter++;
-    } else continue;
+let arr = []
+for(let i = 0; i < x.length; i++){
+    arr.push(cleanArr(x[i]))
 }
-console.log("safe =======", safeCounter);
+
+function cleanArr(a) {
+    let dir = a[1] - a[0] 
+    for(let j = 1; j < a.length; j++) {
+        let diff = a[j] - a[j - 1];
+
+        // check flux
+        if(dir>0){
+            if(diff > 3 || diff <= 0) {
+                a.splice(j-1, 1)
+                return a
+            } 
+        } else {
+            if(diff >= 0 || diff < -3 ) {
+                a.splice(j-1, 1)
+                return a
+            }             
+        }
+    }
+    return a
+}
+
+
+
+
+console.log("safe ====should get 4===", JSON.stringify(arr));
+
+
